@@ -1,0 +1,55 @@
+{
+  "name": "mcp-shield",
+  "version": "0.1.0",
+  "description": "MCP Server Secret Injector (envFile / AES-256-GCM Vault), Tool-Poisoning Scanner & Real-Time stdio JSON-RPC 2.0 Firewall.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "security",
+    "ai-security",
+    "prompt-injection",
+    "tool-poisoning",
+    "secret-management",
+    "claude-code",
+    "cursor",
+    "codex",
+    "firewall"
+  ],
+  "license": "MIT",
+  "author": "packachuz",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/packachuz/mcp-shield.git"
+  },
+  "type": "module",
+  "bin": {
+    "mcp-shield": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "clean": "node -e \"fs.rmSync('dist', { recursive: true, force: true })\"",
+    "prepublishOnly": "npm run clean && npm run build && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
